@@ -1,0 +1,155 @@
+{
+  "homeLink": "Home",
+  "aboutUs": "About Us",
+  "form": "Book Now",
+  "questions": "FAQ",
+  "contact": "Contact",
+  "footer": "2025 MAT-TRANS. All rights reserved.",
+  "connectWithUs": "Connect with us:",
+  "link": "Quick links",
+  "infoTitle": "Information",
+  "address": "Marshal Tito 83, Berovo",
+
+  "message": "Leave a Message",
+  "messageDesc": "Please leave a message with your questions or requests and we will respond as soon as possible",
+  "namePlaceholder": "Full name",
+  "emailPlaceholder": "Your email address",
+  "messagePlaceholder": "How can we help you?",
+  "requiredFieldsNote": "Fields marked with * are required",
+  "fieldIsRequired": "This field is required",
+  "invalidEmail": "Invalid email address",
+  "sendMessage": "Send Message",
+  "modalSuccess": "Your message has been successfully sent!",
+  "modalError": "An error occurred while sending your message. Please try again later.",
+  "close": "Close",
+
+  "home": {
+    "modal": {
+      "confirmationTitle": "Your request has been successfully submitted!",
+      "successMessage": "We have successfully received your reservation. Here are the details:",
+      "followUpNote": "You will receive a confirmation email for your reservation as soon as possible."
+    },
+    "sliderAlt": "Transport image",
+    "aboutTitle": "About Us",
+    "aboutText": "Book online quickly and easily, and travel worry-free with a partner you can trust",
+    "aboutDescription": "We are a licensed passenger transport company with many years of experience and a strong commitment to service quality. Your safety, comfort, and punctuality are our top priorities. We operate modern, regularly maintained vehicles and a team of professional drivers dedicated to providing a pleasant and secure travel experience. We offer daily transport between Berovo and Skopje. Passengers are picked up and dropped off at multiple locations across Skopje and Berovo, based on their needs, with optional stopovers in towns along the route. ",
+    "schedule": {
+      "berovo": "Daily departure from Berovo",
+      "skopje": "Daily departure from Skopje"
+    },
+    "bookingTitle": "Book Transport",
+    "form": {
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email",
+      "date": "Departure Date",
+      "from": "Pick up location ",
+      "to": "Drop off location ",
+      "submit": "Book Now",
+      "selectLocation": "Select a location",
+      "people": "Passengers",
+      "emailSentSuccess": "✔️ Email sent successfully!",
+      "emailSentError": "❌ Sending failed: {{error}}",
+      "emailSendFailed": "❌ An error occurred while sending.",
+      "oneWay": "One-way",
+      "roundTrip": "Round-trip",
+      "adults": "Adults",
+      "children": "Children 0 - 7 y",
+      "returnDate": "Return date",
+      "returnDateUnknown": "I don't know the exact return date yet",
+      "returnTime": "Return Time",
+      "returnTimeUnknown": "I don't know the return time yet"
+    },
+    "overlay": {
+      "title": "NEED A RIDE?",
+      "subtitle": "THEN YOU'RE IN THE RIGHT PLACE",
+      "bookBtn": "BOOK NOW",
+      "callBtn": "CALL AND SCHEDULE"
+    },
+    "features": {
+      "reliableTransport": {
+        "title": "Reliable Transport",
+        "description": "Fast and safe rides you can always count on."
+      },
+      "bookingFlexibility": {
+        "title": "Booking Flexibility",
+        "description": "Change your plans easily with our flexible booking system."
+      },
+      "customerService": {
+        "title": "24/7 Customer Service",
+        "description": "We're here to help anytime, day or night."
+      },
+      "qualityVehicles": {
+        "title": "Quality Vehicles",
+        "description": "Clean, well-maintained cars for a comfortable journey."
+      },
+      "safetyGuarantee": {
+        "title": "Safety Guarantee",
+        "description": "Your safety is our top priority on every trip."
+      },
+      "professionalStaff": {
+        "title": "Professional Staff",
+        "description": "Experienced drivers and support team at your service."
+      }
+    }
+  },
+
+  "locations": {
+    "berovo": "Berovo",
+    "skopje": "Skopje",
+    "bus_station": "Bus Station",
+    "berovo_police_station": "Police Station",
+    "smojmirovo": "Smojmirovo",
+    "machevo": "Machevo",
+    "budinarci": "Budinarci",
+    "mitrasinci": "Mitrashinci",
+    "vinica": "Vinica",
+    "svetiNikole": "Sveti Nikole",
+    "skopje_clinic": "Clinical Center",
+    "skopje_student_home": "Student Dormitory \"Goce Delcev\""
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+
+    "q1": "Do I need to book in advance?",
+    "a1": "We recommend booking at least one day in advance to secure your seat.",
+
+    "q2": "Is there a discount for children?",
+    "a2": "Yes, children under 7 years old get a 50% discount.",
+
+    "q3": "How much does a ticket cost?",
+    "a3": "The price of a one-way ticket is 500 denars.",
+
+    "q4": "Can I buy a return ticket and what is the price?",
+    "a4": "Yes, a return ticket costs 900 denars and is valid for 30 days from the departure date.",
+
+    "q5": "How can I cancel a reservation?",
+    "a5": "You can cancel by calling us at least 12 hours before departure."
+  },
+  "modal": {
+    "success": "Reservation was successful!"
+  },
+
+  "terms": {
+    "title": "Terms of Use",
+    "intro": "Please read the terms of use of our website carefully. By using this site, you agree to these terms.",
+    "userResponsibilitiesTitle": "User Responsibilities",
+    "userResponsibilitiesContent": "Users agree to use the site in accordance with all applicable laws and these terms. Improper or illegal use of the content and services of the site is strictly prohibited.",
+    "limitationOfLiabilityTitle": "Limitation of Liability",
+    "limitationOfLiabilityContent": "The site and its owners are not responsible for any direct, indirect, or consequential damages that may result from using or being unable to use the site.",
+    "changesTitle": "Changes to the Terms",
+    "changesContent": "MAT-TRANS reserves the right to modify these terms, as well as the site's content, at any time without prior notice. We recommend checking the terms regularly to stay informed of any changes.",
+    "contactTitle": "Contact Information",
+    "contactContent": "For inquiries, please contact us at mattransdooel@gmail.com"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "Your privacy is our highest priority. Through this Privacy Policy, we inform you about what information is collected, how it is used, and how it is protected when using our website.",
+    "dataCollectionTitle": "Data Collection",
+    "dataCollectionContent": "We do not store personal data through login or registration, as such functionalities do not exist on this site. The only information we may receive is what you voluntarily submit through the contact form (e.g., name and email), and it is used solely to respond to your inquiry.",
+    "cookiesTitle": "Use of Cookies",
+    "cookiesContent": "Our website may use cookies for basic functionality, visitor analytics, or to improve the user experience. Cookies are not used for user tracking or marketing purposes.",
+    "contactTitle": "Contact Information",
+    "contactContent": "For any privacy-related questions, feel free to contact us at mattransdooel@gmail.com"
+  }
+}

@@ -1,0 +1,306 @@
+:root {
+  --color-dark-blue: #2c3e50;
+  --color-bg: #f0f0f3;
+  --color-shadow-light: #ffffff;
+  --color-shadow-dark: #d1d9e6;
+}
+.booking {
+  width: 100%;
+  background-color: white;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  color: var(--color-dark-blue);
+  box-shadow: 10px 10px 30px var(--color-shadow-dark),
+    -10px -10px 30px var(--color-shadow-light);
+}
+
+.submitButton {
+  grid-column: -1 / -2;
+  justify-self: end;
+  background: var(--color-bg);
+  border-radius: 12px;
+  padding: 0.75rem 2rem;
+  border: none;
+  color: var(--color-dark-blue);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 8px 8px 16px var(--color-shadow-dark),
+    -8px -8px 16px var(--color-shadow-light);
+}
+
+.submitButton:hover {
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.7),
+    inset -2px -2px 5px rgba(120, 160, 210, 0.9);
+}
+
+.form {
+  width: 100%;
+  max-width: 75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  align-items: end;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-dark-blue);
+}
+
+.form input,
+.form select,
+.form textarea,
+.passengerInputs input {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 12px;
+  background-color: var(--color-bg);
+  color: var(--color-dark-blue);
+  box-shadow: inset 6px 6px 12px var(--color-shadow-dark),
+    inset -6px -6px 12px var(--color-shadow-light);
+  width: 100%;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus,
+.passengerInputs input:focus {
+  outline: none;
+  box-shadow: inset 4px 4px 10px var(--color-shadow-dark),
+    inset -4px -4px 10px var(--color-shadow-light);
+}
+.form input:-webkit-autofill,
+.form input:-webkit-autofill:hover,
+.form input:-webkit-autofill:focus,
+.passengerInputs input:-webkit-autofill {
+  box-shadow: inset 6px 6px 12px var(--color-shadow-dark),
+    inset -6px -6px 12px var(--color-shadow-light),
+    0 0 0 1000px var(--color-bg) inset !important;
+  -webkit-text-fill-color: var(--color-dark-blue) !important;
+  caret-color: var(--color-dark-blue);
+}
+
+.narrowLabel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.passengerInputs {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.form input::placeholder,
+.passengerInputs input::placeholder {
+  color: var(--color-dark-blue);
+  opacity: 0.9;
+}
+
+.dropdownMenu {
+  position: absolute;
+  z-index: 10;
+  background-color: var(--color-bg);
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6),
+    -8px -8px 16px rgba(100, 130, 180, 0.8);
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.dropdownInput {
+  padding: 0.75rem;
+  background-color: var(--color-bg);
+  color: var(--color-dark-blue);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 4px 4px 10px var(--color-shadow-dark),
+    inset -4px -4px 10px var(--color-shadow-light);
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.dropdownItem,
+.dropdownSubItem {
+  padding: 0.5rem 1rem;
+}
+
+.dropdownItem button,
+.dropdownSubItem button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--color-dark-blue);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdownItem button:hover,
+.dropdownSubItem button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.arrow {
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.radioGroupLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.radioGroupLine > h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: var(--color-dark-blue);
+  flex-shrink: 0;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.checkboxLabel {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--color-dark-blue);
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 6px;
+  background-color: var(--color-bg);
+  box-shadow: inset 3px 3px 6px var(--color-shadow-dark),
+    inset -3px -3px 6px var(--color-shadow-light);
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s ease;
+}
+
+.checkboxLabel input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.8),
+    inset -2px -2px 4px rgba(140, 180, 220, 1);
+}
+
+.checkboxLabel input[type="checkbox"]:checked {
+  background-color: white;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3),
+    inset -1px -1px 3px rgba(140, 180, 220, 0.8);
+  position: relative;
+}
+
+.checkboxLabel input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 0.1rem;
+  left: 0.35rem;
+  width: 0.4rem;
+  height: 0.8rem;
+  border: solid var(--color-dark-blue);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.returnOptionsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  grid-column: span 2;
+  margin-top: -0.2rem;
+  flex-wrap: nowrap;
+}
+
+.returnOptionsRow .checkboxLabel {
+  flex-shrink: 1;
+}
+
+.returnOptionsRow button {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .radioGroupLine {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .radioGroup {
+    margin-top: 0.5rem;
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+
+  .form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .form > label,
+  .form > .narrowLabel,
+  .form > div:not(.passengerInputs) {
+    width: 100%;
+  }
+
+  .passengerInputs {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .passengerInputs input {
+    width: 100%;
+  }
+}

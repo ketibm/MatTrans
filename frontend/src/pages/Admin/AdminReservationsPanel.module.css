@@ -1,0 +1,87 @@
+.container {
+  margin: 20px auto;
+  padding: 0 20px 40px;
+  color: var(--color-dark-blue);
+  /* box-shadow: 0 0 12px rgba(0, 0, 0, 0.1); */
+}
+
+h3 {
+  text-align: center;
+  color: var(--color-dark-blue);
+  font-size: 2rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.3rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f9ff;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table button {
+  margin-right: 0.1rem;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  color: var(--color-white);
+  transition: background-color 0.3s ease;
+}
+
+.confirmBtn {
+  background-color: var(--color-light-blue);
+}
+.confirmBtn:hover {
+  background-color: var(--color-dark-blue);
+}
+
+.rejectBtn {
+  background-color: var(--color-light-blue);
+}
+.rejectBtn:hover {
+  background-color: #c82333;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+@media print {
+  .actionButtons {
+    display: none !important;
+  }
+}
+
+.dateInput {
+  margin-bottom: 12px;
+}
+
+/* @media (max-width: 600px) {
+  .form-container label {
+    flex: 1 1 100%;
+  }
+} */

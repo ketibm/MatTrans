@@ -1,0 +1,58 @@
+.mainContainer {
+  background-color: var(--color-bg);
+}
+
+.title {
+  background-color: var(--color-dark-blue);
+  color: var(--color-bg);
+  padding: 6.25rem 4.4rem 1.25rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: start;
+}
+
+.content {
+  text-align: justify;
+  max-width: 60%;
+  color: var(--color-black);
+  line-height: 1.4;
+  margin: 3rem 4.4rem;
+}
+
+.content h2 {
+  margin-top: 1.5rem;
+  color: var(--color-black);
+}
+
+.content p {
+  margin: 0.6rem 0;
+  font-size: 1.125rem;
+  color: #444;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    max-width: 80%;
+  }
+  .content h2 {
+    font-size: 1.25rem;
+  }
+
+  .content p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    margin: 1.875rem 3.125rem;
+  }
+
+  .content h2 {
+    font-size: 1rem;
+  }
+
+  .content p {
+    font-size: 0.75rem;
+  }
+}

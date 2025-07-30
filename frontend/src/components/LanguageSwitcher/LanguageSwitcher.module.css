@@ -1,0 +1,58 @@
+.languageSwitcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.iconWrapper {
+  all: unset;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  margin: 0;
+}
+
+.globeIcon {
+  font-size: 1.5rem;
+  color: var(--color-white);
+  transition: color 0.3s ease;
+}
+
+.iconWrapper:hover .globeIcon {
+  color: var(--color-light-blue);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-white);
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 99999;
+  min-width: 3.5rem;
+}
+
+.dropdownItem {
+  cursor: pointer;
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.dropdownItem:hover {
+  background-color: var(--color-light-blue);
+}
+
+.dropdownFlag {
+  width: 1.7rem;
+  height: auto;
+  border: 1px solid red;
+}
