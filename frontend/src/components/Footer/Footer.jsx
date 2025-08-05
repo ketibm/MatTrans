@@ -17,7 +17,7 @@ const Footer = ({ scrollToSection }) => {
   const location = useLocation();
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 769);
-  const [showMap, setShowMap] = useState(true);
+  const [showMap, setShowMap] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
