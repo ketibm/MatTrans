@@ -79,8 +79,10 @@ p {
 }
 
 :root {
-  --color-light-blue: #2aa1f1;
-  --color-dark-blue: #003366;
+  /* --color-light-blue: #2aa1f1;
+  --color-dark-blue: #003366; */
+  --color-light-blue: #0b7fd2;
+  --color-dark-blue: #004059;
   --color-white: #fff;
   --color-black: #000;
   --color-gray: #f1f1f1;

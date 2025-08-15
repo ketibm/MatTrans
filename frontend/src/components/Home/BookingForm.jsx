@@ -127,6 +127,8 @@ const BookingForm = ({
   submitButtonText = "Резервирај",
   onSubmitCallback,
   title,
+  setFormData,
+  setModalOpen,
 }) => {
   const { t } = useTranslation();
   const [selectedFrom, setSelectedFrom] = useState("");
@@ -142,7 +144,6 @@ const BookingForm = ({
 
     const adults = parseInt(e.target.adults.value) || 0;
     const children = parseInt(e.target.children.value) || 0;
-
     const fullNameInput = capitalizeEachWord(e.target.fullName.value);
 
     const formData = {
@@ -158,15 +159,24 @@ const BookingForm = ({
       adults,
       children,
       tripType,
-      returnDate: returnDateUnknown ? null : e.target.returnDate?.value,
       returnDateUnknown,
     };
 
+    if (tripType === "oneWay" || returnDateUnknown) {
+      formData.returnDate = null;
+    } else {
+      formData.returnDate = e.target.returnDate?.value || null;
+    }
+
     try {
       setLoading(true);
+
       if (onSubmitCallback) {
         await onSubmitCallback(formData);
       }
+
+      if (setFormData) setFormData(formData);
+      if (setModalOpen) setModalOpen(true);
 
       e.target.reset();
       setSelectedFrom("");

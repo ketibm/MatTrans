@@ -1,9 +1,8 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Root from "./routes/Root.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
-import PrivacyPage from "./pages/Privacy/PrivacyPage.jsx";
-import TermsPage from "./pages/Privacy/TermsPage.jsx";
+import PrivacyTermsPage from "./pages/Privacy/PrivacyTermsPage.jsx";
 import AdminReservationsPanel from "./pages/Admin/AdminReservationsPanel.jsx";
 import ScrollToTop from "./components/Scroll/ScrollToTop.jsx";
 import AdminLoginPage from "./pages/Admin/AdminLoginPage.jsx";
@@ -20,12 +19,10 @@ function App() {
       <Routes>
         <Route element={<Root />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/terms" element={<TermsPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-
+          <Route path="/privacy" element={<PrivacyTermsPage />} />
+          <Route path="/privacy" element={<PrivacyTermsPage />} />
           <Route path="/login" element={<AdminAuthPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
-
           <Route element={<RequireAuth />}>
             <Route path="/admin" element={<AdminReservationsPanel />} />
           </Route>

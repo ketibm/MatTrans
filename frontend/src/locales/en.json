@@ -27,8 +27,10 @@
     "modal": {
       "confirmationTitle": "Your request has been successfully submitted!",
       "successMessage": "We have successfully received your reservation. Here are the details:",
-      "followUpNote": "You will receive a confirmation email for your reservation as soon as possible."
+      "followUpNote": "You will receive a confirmation email for your reservation as soon as possible.",
+      "unknownDate": "Unknown return date"
     },
+
     "sliderAlt": "Transport image",
     "aboutTitle": "About Us",
     "aboutText": "Book online quickly and easily, and travel worry-free with a partner you can trust",
@@ -106,7 +108,11 @@
     "vinica": "Vinica",
     "svetiNikole": "Sveti Nikole",
     "skopje_clinic": "Clinical Center",
-    "skopje_student_home": "Student Dormitory \"Goce Delcev\""
+    "skopje_student_home": "Student Dormitory \"Goce Delcev\"",
+    "alkaloid": "Alkaloid",
+    "city_mall": "City Mall",
+    "guc": "GUC",
+    "continental": "Hotel Continental"
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -132,7 +138,7 @@
 
   "terms": {
     "title": "Terms of Use",
-    "intro": "Please read the terms of use of our website carefully. By using this site, you agree to these terms.",
+    "intro": "Please read the Terms of Use of our website carefully. By using this site, you agree to these terms.",
     "userResponsibilitiesTitle": "User Responsibilities",
     "userResponsibilitiesContent": "Users agree to use the site in accordance with all applicable laws and these terms. Improper or illegal use of the content and services of the site is strictly prohibited.",
     "limitationOfLiabilityTitle": "Limitation of Liability",
@@ -144,12 +150,14 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "intro": "Your privacy is our highest priority. Through this Privacy Policy, we inform you about what information is collected, how it is used, and how it is protected when using our website.",
+    "intro": "Your privacy is our highest priority. This Privacy Policy informs you which information is collected, how it is used, and how it is protected when using our website.",
     "dataCollectionTitle": "Data Collection",
-    "dataCollectionContent": "We do not store personal data through login or registration, as such functionalities do not exist on this site. The only information we may receive is what you voluntarily submit through the contact form (e.g., name and email), and it is used solely to respond to your inquiry.",
+    "dataCollectionContent": "Each traveler is required to provide their basic information when using our services, including first and last name, email, and phone number. This information is collected for the purpose of confirming and organizing reservations or services, contacting the traveler regarding their requests or inquiries, and sending important information related to the service.",
+    "protectionTitle": "Data Protection",
+    "protectionContent": "All personal data is stored securely and is not shared with third parties, except where required by law or for providing our services. We use technical and organizational measures to protect data from unauthorized access, alteration, or destruction.",
     "cookiesTitle": "Use of Cookies",
-    "cookiesContent": "Our website may use cookies for basic functionality, visitor analytics, or to improve the user experience. Cookies are not used for user tracking or marketing purposes.",
+    "cookiesContent": "Our website may use cookies for basic functionality, visitor analytics, and improving user experience. Cookies are not used for marketing or tracking users.",
     "contactTitle": "Contact Information",
-    "contactContent": "For any privacy-related questions, feel free to contact us at mattransdooel@gmail.com"
+    "contactContent": "For any privacy-related questions, please contact us at mattransdooel@gmail.com"
   }
 }

@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ModalContext } from "../../contexts/ModalContext";
 import { ActiveSectionContext } from "../../contexts/ActiveSectionContext";
-import logo from "../../assets/logo.jpg";
+import logo from "../../assets/logo1.png";
 import styles from "./Header.module.css";
 
 const Header = ({ scrollToSection }) => {

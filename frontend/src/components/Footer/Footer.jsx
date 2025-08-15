@@ -87,16 +87,19 @@ const Footer = ({ scrollToSection }) => {
           {renderContact()}
           <ul className={styles.simpleLinks}>
             <li>
-              <a href="/terms">{t("terms.title")}</a>
+              <a href="/privacy">{t("privacy.title")}</a>
             </li>
             <li>
-              <a href="/privacy">{t("privacy.title")}</a>
+              <a href="/privacy">{t("terms.title")}</a>
             </li>
           </ul>
         </div>
         {showMap && (
           <MapPopup onClose={toggleMap}>
-            <CompanyMap address="Маршал Тито 56, Берово, Македонија" />
+            <CompanyMap
+              coordinates={{ lat: 41.70922809345279, lng: 22.855204754061756 }}
+              zoom={17}
+            />
           </MapPopup>
         )}
         <div className={styles.copyright}>{t("footer")}</div>
@@ -113,10 +116,10 @@ const Footer = ({ scrollToSection }) => {
             <div className={styles.content}>
               <ul>
                 <li>
-                  <a href="/terms">{t("terms.title")}</a>
+                  <a href="/privacy">{t("privacy.title")}</a>
                 </li>
                 <li>
-                  <a href="/privacy">{t("privacy.title")}</a>
+                  <a href="/privacy">{t("terms.title")}</a>
                 </li>
               </ul>
             </div>
@@ -164,7 +167,10 @@ const Footer = ({ scrollToSection }) => {
 
       {showMap && (
         <MapPopup onClose={toggleMap}>
-          <CompanyMap address="Маршал Тито 56, Берово, Македонија" zoom={17} />
+          <CompanyMap
+            coordinates={{ lat: 41.70922809345279, lng: 22.855204754061756 }}
+            zoom={17}
+          />
         </MapPopup>
       )}
 

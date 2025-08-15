@@ -3,12 +3,19 @@ import styles from "./BookingForm.module.css";
 import { useTranslation } from "react-i18next";
 
 const locations = {
-  berovo: ["bus_station", "berovo_police_station"],
+  berovo: ["bus_station", "berovo_police_station", "alkaloid"],
   smojmirovo: [],
   machevo: [],
   budinarci: [],
   mitrasinci: [],
-  skopje: ["bus_station", "skopje_clinic", "skopje_student_home"],
+  skopje: [
+    "bus_station",
+    "skopje_clinic",
+    "skopje_student_home",
+    "city_mall",
+    "guc",
+    "continental",
+  ],
   vinica: [],
   svetiNikole: [],
 };

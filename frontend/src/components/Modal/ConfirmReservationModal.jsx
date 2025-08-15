@@ -3,21 +3,33 @@ import styles from "./ModalCard.module.css";
 import Button from "../Button/Button";
 
 const ConfirmReservationModal = ({ reservation, onClose, onConfirm, show }) => {
-  const [direction, setDirection] = useState(
-    reservation?.direction || "berovo-skopje"
-  );
+  const [direction, setDirection] = useState(reservation?.direction || "");
 
   useEffect(() => {
-    setDirection(reservation?.direction || "berovo-skopje");
+    setDirection(reservation?.direction || "");
   }, [reservation]);
 
   if (!show || !reservation) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onConfirm(reservation._id, direction);
-  };
+    console.log(
+      "Потврдувам насока:",
+      direction,
+      "за резервација:",
+      reservation._id
+    );
 
+    onConfirm({
+      id: reservation._id,
+      direction,
+      returnDate: reservation.returnDate,
+      tripType: reservation.tripType,
+      returnDateUnknown: reservation.returnDateUnknown,
+      groupId: reservation.groupId,
+    });
+    onClose();
+  };
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
     return `${String(date.getDate()).padStart(2, "0")}.${String(
@@ -71,6 +83,7 @@ const ConfirmReservationModal = ({ reservation, onClose, onConfirm, show }) => {
             style={{ display: "flex", justifyContent: "center", gap: "1rem" }}
           >
             <Button type="submit">Потврди</Button>
+
             <Button type="button" onClick={onClose} variant="secondary">
               Откажи
             </Button>

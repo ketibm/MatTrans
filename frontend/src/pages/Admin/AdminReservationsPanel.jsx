@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useTranslation } from "react-i18next";
 import styles from "./AdminReservationsPanel.module.css";
 import BookingForm from "../../components/Home/BookingForm";
 import ModalCard from "../../components/Modal/ModalCard";
 import ConfirmReservationModal from "../../components/Modal/ConfirmReservationModal";
 
 const AdminReservationsPanel = () => {
-  const { t } = useTranslation();
   const [reservations, setReservations] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
@@ -146,8 +144,6 @@ const AdminReservationsPanel = () => {
       setReservationToConfirm(reservations.find((r) => r._id === id) || null);
     } catch (error) {
       setModalMessage("Грешка при потврдување на резервацијата.");
-      setModalOpen(true);
-      setReservationToConfirm(null);
     }
   }
 
@@ -162,7 +158,14 @@ const AdminReservationsPanel = () => {
     }
   };
 
-  async function updateStatusWithDirection(id, direction) {
+  async function updateStatusWithDirection({
+    id,
+    direction,
+    returnDate,
+    tripType,
+    returnDateUnknown,
+    groupId,
+  }) {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
@@ -173,7 +176,14 @@ const AdminReservationsPanel = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ direction }),
+          body: JSON.stringify({
+            status: "confirmed",
+            direction,
+            returnDate,
+            tripType,
+            returnDateUnknown,
+            groupId,
+          }),
         }
       );
 
@@ -277,113 +287,134 @@ const AdminReservationsPanel = () => {
     return (
       <div>
         <h3>{title}</h3>
-        {!hideDateAndPrint && (
-          <>
-            <input
-              type="date"
-              className={styles.dateInput}
-              value={date}
-              onChange={(e) => {
-                setDate(e.target.value);
-                onPageChange(1);
-              }}
-            />
-            <button onClick={() => handlePrint(tableId, title, date)}>
-              Печати
-            </button>
-          </>
-        )}
-        <table id={tableId} className={styles.table}>
-          <thead>
-            <tr>
-              <th rowSpan="2">Име</th>
-              <th rowSpan="2">Телефон</th>
-              <th rowSpan="2" className="email">
-                Е-маил
-              </th>
-              <th rowSpan="2">Од</th>
-              <th rowSpan="2">До</th>
-              {showDateColumn && <th rowSpan="2">Датум</th>}
-              <th colSpan="2">Патници</th>
-              <th rowSpan="2"></th>
-            </tr>
-            <tr>
-              <th>Возрасни</th>
-              <th>Деца</th>
-            </tr>
-          </thead>
-          <tbody>
-            {pageData.length === 0 ? (
+        <div className={styles.datePrintWrapper}>
+          {!hideDateAndPrint && (
+            <>
+              <input
+                type="date"
+                className={styles.dateInput}
+                value={date}
+                onChange={(e) => {
+                  setDate(e.target.value);
+                  onPageChange(1);
+                }}
+              />
+              <button onClick={() => handlePrint(tableId, title, date)}>
+                Печати
+              </button>
+            </>
+          )}
+        </div>
+        <div className={styles.tableWrapper}>
+          <table id={tableId} className={styles.table}>
+            <thead>
               <tr>
-                {/* <td colSpan="9">Нема резервации.</td> */}
-                <td colSpan={showDateColumn ? "9" : "8"}>Нема резервации.</td>
+                <th rowSpan="2">Име</th>
+                <th rowSpan="2">Телефон</th>
+                <th rowSpan="2" className="email">
+                  Е-маил
+                </th>
+                <th rowSpan="2">Од</th>
+                <th rowSpan="2">До</th>
+                {showDateColumn && (
+                  <>
+                    <th rowSpan="2">Поаѓање</th>
+                    <th rowSpan="2">Враќање</th>
+                  </>
+                )}
+                <th colSpan="2">Патници</th>
+                <th rowSpan="2"></th>
               </tr>
-            ) : (
-              pageData.map((r) => (
-                <tr key={r._id}>
-                  <td>{r.fullName}</td>
-                  <td>{r.phone}</td>
-                  <td className="email">{r.email}</td>
-                  <td>{r.from}</td>
-                  <td>{r.to}</td>
-
-                  {showDateColumn && (
-                    <td>{new Date(r.date).toLocaleDateString()}</td>
-                  )}
-                  <td>{r.adults}</td>
-                  <td>{r.children}</td>
-                  <td>
-                    <div className={styles.actionButtons}>
-                      {title === "Резервации во тек" ? (
-                        <>
-                          <button
-                            className={styles.confirmBtn}
-                            onClick={() => onConfirmClick(r)}
-                          >
-                            Потврди
-                          </button>
-                          <button
-                            className={styles.rejectBtn}
-                            onClick={() => updateStatus(r._id, "rejected")}
-                          >
-                            Одбиј
-                          </button>
-                        </>
-                      ) : (
-                        <button
-                          className={styles.rejectBtn}
-                          onClick={() => handleDelete(r._id)}
-                        >
-                          Избриши
-                        </button>
-                      )}
-                    </div>
+              <tr>
+                <th>Возрасни</th>
+                <th>Деца</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pageData.length === 0 ? (
+                <tr>
+                  <td colSpan={showDateColumn ? "10" : "8"}>
+                    Нема резервации.
                   </td>
                 </tr>
-              ))
+              ) : (
+                pageData.map((r) => (
+                  <tr key={r._id}>
+                    <td>{r.fullName}</td>
+                    <td>{r.phone}</td>
+                    <td className="email">{r.email}</td>
+                    <td>{r.from}</td>
+                    <td>{r.to}</td>
+
+                    {showDateColumn && (
+                      <>
+                        <td>{new Date(r.date).toLocaleDateString()}</td>
+                        <td>
+                          {r.returnDate === null && r.returnDateUnknown
+                            ? "Неопределено"
+                            : r.returnDate
+                            ? new Date(r.returnDate).toLocaleDateString()
+                            : "-"}
+                        </td>
+                      </>
+                    )}
+                    <td>{r.adults}</td>
+                    <td>{r.children}</td>
+                    <td>
+                      <div className={styles.actionButtons}>
+                        {title === "Резервации во тек" ? (
+                          <>
+                            <button
+                              className={styles.confirmBtn}
+                              onClick={() => onConfirmClick(r)}
+                            >
+                              Потврди
+                            </button>
+                            <button
+                              className={styles.rejectBtn}
+                              onClick={() => updateStatus(r._id, "rejected")}
+                            >
+                              Одбиј
+                            </button>
+                          </>
+                        ) : (
+                          <button
+                            className={styles.rejectBtn}
+                            onClick={() => handleDelete(r._id)}
+                          >
+                            Избриши
+                          </button>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+            {title !== "Резервации во тек" && (
+              <tfoot>
+                <tr>
+                  <td
+                    colSpan={showDateColumn ? "7" : "5"}
+                    style={{ textAlign: "right", fontWeight: "bold" }}
+                  >
+                    Вкупно патници:
+                  </td>
+                  <td>
+                    {data.reduce((sum, r) => sum + parseInt(r.adults || 0), 0)}
+                  </td>
+                  <td>
+                    {data.reduce(
+                      (sum, r) => sum + parseInt(r.children || 0),
+                      0
+                    )}
+                  </td>
+                  <td></td>
+                </tr>
+              </tfoot>
             )}
-          </tbody>
-          {/* Ако не е "Резервации во тек" прикажи footer со вкупно патници */}
-          {title !== "Резервации во тек" && (
-            <tfoot>
-              <tr>
-                <td
-                  colSpan={showDateColumn ? "6" : "5"}
-                  style={{ textAlign: "right" }}
-                >
-                  Вкупно патници:
-                </td>
-                <td>
-                  {data.reduce((sum, r) => sum + parseInt(r.adults || 0), 0)}
-                </td>
-                <td>
-                  {data.reduce((sum, r) => sum + parseInt(r.children || 0), 0)}
-                </td>
-                <td></td>
-              </tr>
-            </tfoot>
-          )}
-        </table>
+          </table>
+        </div>
         {pagesCount > 1 && (
           <PaginationControls
             currentPage={currentPage}
@@ -420,6 +451,7 @@ const AdminReservationsPanel = () => {
       setModalOpen(true);
     }
   }
+
   const addReservation = async (formData) => {
     try {
       const {
@@ -434,6 +466,7 @@ const AdminReservationsPanel = () => {
         tripType,
         returnDate,
         returnDateUnknown,
+        direction,
       } = formData;
 
       const basePayload = {
@@ -450,9 +483,10 @@ const AdminReservationsPanel = () => {
         date,
         from,
         to,
-        direction: from.toLowerCase().includes("берово")
-          ? "berovo-skopje"
-          : "skopje-berovo",
+        direction: direction || null,
+        tripType,
+        returnDate: tripType === "roundTrip" ? returnDate : null,
+        returnDateUnknown,
       };
 
       const response1 = await fetch("http://localhost:5000/api/reservations", {
@@ -463,52 +497,22 @@ const AdminReservationsPanel = () => {
 
       if (!response1.ok)
         throw new Error("Грешка при додавање на првата насока.");
+
       const newReservation1 = await response1.json();
 
-      let newReservation2 = null;
-      if (tripType === "roundTrip" && returnDate && !returnDateUnknown) {
-        const returnReservation = {
-          ...basePayload,
-          date: returnDate,
-          from: to,
-          to: from,
-          direction: from.toLowerCase().includes("берово")
-            ? "skopje-berovo"
-            : "berovo-skopje",
-        };
-
-        const response2 = await fetch(
-          "http://localhost:5000/api/reservations",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(returnReservation),
-          }
-        );
-
-        if (!response2.ok)
-          throw new Error("Грешка при додавање на повратна насока.");
-
-        newReservation2 = await response2.json();
-      }
-
-      // ➤ Додај ги во state
       setReservations((prev) =>
-        [
-          ...prev,
-          newReservation1,
-          ...(newReservation2 ? [newReservation2] : []),
-        ]
+        [...prev, newReservation1]
           .filter(Boolean)
           .sort((a, b) => new Date(a.date) - new Date(b.date))
       );
 
-      setModalMessage(
-        newReservation2
-          ? "Двете насоки од резервацијата се успешно додадени."
-          : "Резервацијата е успешно додадена."
-      );
-      setModalOpen(true);
+      if (
+        tripType === "oneWay" ||
+        (tripType === "roundTrip" && (returnDateUnknown || returnDate))
+      ) {
+        setReservationToConfirm(newReservation1);
+        setConfirmModalOpen(true);
+      }
     } catch (error) {
       console.error(error);
       setModalMessage("Грешка при додавање на резервацијата.");
@@ -589,12 +593,6 @@ const AdminReservationsPanel = () => {
       </html>
     `);
     printWindow.document.close();
-    //   printWindow.focus();
-    //   printWindow.print();
-    //   setTimeout(() => {
-    //     printWindow.close();
-    //   }, 500);
-    // }
     printWindow.onload = () => {
       printWindow.print();
       setTimeout(() => {
@@ -619,7 +617,6 @@ const AdminReservationsPanel = () => {
         true
       )}
 
-      {/* Берово → Скопје */}
       {renderTable(
         filteredBerovoSkopje,
         selectedDateBerovo,
@@ -632,7 +629,6 @@ const AdminReservationsPanel = () => {
         "Берово → Скопје"
       )}
 
-      {/* Скопје → Берово */}
       {renderTable(
         filteredSkopjeBerovo,
         selectedDateSkopje,

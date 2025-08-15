@@ -26,6 +26,7 @@ const HomePage = () => {
 
   const addReservation = async (formData) => {
     try {
+      console.log("Form data to send:", formData);
       const response = await fetch("http://localhost:5000/api/reservations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -95,6 +96,12 @@ const HomePage = () => {
         <p>
           <strong>{t("home.form.date")}:</strong> {formData.date}
         </p>
+        {formData.tripType === "roundTrip" && (
+          <p>
+            <strong>{t("home.form.returnDate")}:</strong>{" "}
+            {formData.returnDate || t("home.modal.unknownDate")}
+          </p>
+        )}
         <p>
           <strong>{t("home.form.from")}:</strong>{" "}
           {i18n.language === "mk" ? formData.from : formData.fromOriginal}
@@ -110,13 +117,6 @@ const HomePage = () => {
         <p>
           <strong>{t("home.form.children")}:</strong> {formData.children}
         </p>
-
-        {formData.tripType === "roundTrip" && (
-          <p>
-            <strong>{t("home.form.returnDate")}:</strong>{" "}
-            {formData.returnDate || t("home.modal.unknownDate")}
-          </p>
-        )}
       </div>
 
       <p className={styles.modalNote}>{t("home.modal.followUpNote")}</p>

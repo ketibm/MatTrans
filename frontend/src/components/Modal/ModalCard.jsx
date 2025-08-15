@@ -23,7 +23,7 @@ const ModalCard = ({ show, message, closeModal }) => {
         >
           &times;
         </button>
-        {/* <p>{message}</p> */}
+
         {typeof message === "string" ? <p>{message}</p> : message}
         <Button
           className={styles.modalButton}

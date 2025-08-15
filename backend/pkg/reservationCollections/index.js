@@ -21,6 +21,15 @@ const reservationSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  returnDate: {
+    type: Date,
+    required: false,
+    default: null,
+  },
+  returnDateUnknown: {
+    type: Boolean,
+    default: false,
+  },
   from: {
     type: String,
     required: true,
@@ -36,7 +45,6 @@ const reservationSchema = new mongoose.Schema({
     required: true,
     min: 1,
   },
-
   children: {
     type: Number,
     required: false,
@@ -50,8 +58,21 @@ const reservationSchema = new mongoose.Schema({
   },
   direction: {
     type: String,
-    enum: ["berovo-skopje", "skopje-berovo", null],
+    enum: ["berovo-skopje", "skopje-berovo"],
     default: null,
+    required: false,
+  },
+  tripType: {
+    type: String,
+    enum: ["oneWay", "roundTrip"],
+    default: "oneWay",
+    required: false,
+  },
+  groupId: {
+    type: String,
+    required: false,
+    default: null,
+    index: true,
   },
   createdAt: {
     type: Date,

@@ -8,41 +8,46 @@ const containerStyle = {
 
 const libraries = ["places"];
 
-const CompanyMap = ({ address, zoom = 18 }) => {
-  const [location, setLocation] = useState(null);
+const CompanyMap = ({ coordinates, zoom = 18 }) => {
+  // const [location, setLocation] = useState(null);
 
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API,
     libraries,
   });
 
-  useEffect(() => {
-    if (isLoaded && location) {
-      window.google.maps.event.trigger(window, "resize");
-    }
-  }, [isLoaded, location]);
+  // useEffect(() => {
+  //   if (!isLoaded) return;
 
-  useEffect(() => {
-    if (!isLoaded || !address) return;
-
-    const geocoder = new window.google.maps.Geocoder();
-    geocoder.geocode({ address }, (results, status) => {
-      if (status === "OK" && results[0]) {
-        const { lat, lng } = results[0].geometry.location;
-        setLocation({ lat: lat(), lng: lng() });
-      } else {
-        console.error("❌ Geocode failed:", status);
-      }
-    });
-  }, [isLoaded, address]);
+  //   if (coordinates) {
+  //     setLocation(coordinates);
+  //   } else if (address) {
+  //     const geocoder = new window.google.maps.Geocoder();
+  //     geocoder.geocode({ address }, (results, status) => {
+  //       if (status === "OK" && results[0]) {
+  //         const { lat, lng } = results[0].geometry.location;
+  //         setLocation({
+  //           lat: lat(),
+  //           lng: lng(),
+  //         });
+  //       } else {
+  //         console.error("❌ Geocode failed:", status);
+  //       }
+  //     });
+  //   }
+  // }, [isLoaded, address, coordinates]);
 
   if (loadError) return <p>Error loading map</p>;
   if (!isLoaded) return <p>Loading map script...</p>;
-  if (!location) return <p>Loading location...</p>;
+  if (!location) return <p>No coordinates provided</p>;
 
   return (
-    <GoogleMap mapContainerStyle={containerStyle} center={location} zoom={zoom}>
-      <Marker position={location} />
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={coordinates}
+      zoom={zoom}
+    >
+      <Marker position={coordinates} />
     </GoogleMap>
   );
 };
