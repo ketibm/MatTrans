@@ -11,7 +11,7 @@
 
 .header {
   background-color: var(--color-dark-blue);
-  padding: 15px;
+  padding: 1rem;
   margin: 1.5rem 2.5rem 0;
   box-sizing: border-box;
 }
@@ -36,5 +36,13 @@
 @media (max-width: 768px) {
   .mainContainer {
     flex-direction: column;
+  }
+  .content {
+    padding: 1rem;
+  }
+
+  .header {
+    padding: 0.7rem;
+    margin: 1rem;
   }
 }
