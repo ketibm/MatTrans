@@ -63,7 +63,7 @@
   padding: 0.75rem;
   border: none;
   font-size: 1rem;
-  border-radius: 12px;
+  border-radius: 0.8rem;
   background-color: var(--color-bg);
   color: var(--color-dark-blue);
   box-shadow: inset 6px 6px 12px var(--color-shadow-dark),
@@ -126,6 +126,7 @@
 
 .dropdownInput {
   padding: 0.75rem;
+  margin-top: 0.5rem;
   background-color: var(--color-bg);
   color: var(--color-dark-blue);
   border: 1px solid rgba(255, 255, 255, 0.08);
