@@ -271,7 +271,13 @@ const BookingForm = ({
 
         <label>
           {t("home.form.date")}
-          <input type="date" name="date" min={getValidMinDate()} required />
+          <input
+            className={styles.dateInput}
+            type="date"
+            name="date"
+            min={getValidMinDate()}
+            required
+          />
         </label>
 
         {tripType === "roundTrip" && (
