@@ -271,13 +271,7 @@ const BookingForm = ({
 
         <label>
           {t("home.form.date")}
-          <input
-            type="date"
-            name="date"
-            min={getValidMinDate()}
-            required
-            onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-          />
+          <input type="date" name="date" min={getValidMinDate()} required />
         </label>
 
         {tripType === "roundTrip" && (
