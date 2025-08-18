@@ -32,9 +32,24 @@
     },
 
     "sliderAlt": "Transport image",
+
     "aboutTitle": "About Us",
+    "aboutDescription": "We are a licensed passenger transport company with many years of experience and dedication to providing quality service. Our priority is your safety, comfort, and punctuality on every trip. With modern and regularly serviced vehicles, as well as a professional team of drivers, we guarantee you a pleasant and safe travel experience.",
+
+    "aboutSections": {
+      "regularTransport": {
+        "title": "Regular Transport",
+        "text": "We offer daily transport between Berovo and Skopje. Passengers are picked up and dropped off at multiple locations in both cities, depending on their needs, with the possibility of agreed intermediate stops along the route."
+      },
+      "additionalServices": {
+        "title": "Additional Services",
+        "intro": "In addition to regular transport, we provide:",
+        "weddings": "Organized transport for weddings and celebrations",
+        "groupTransport": "Group transport by arrangement, fully tailored to your requirements",
+        "footerText": "Whether you need transport for private or business events, our company is at your disposal for safe and comfortable travel."
+      }
+    },
     "aboutText": "Book online quickly and easily, and travel worry-free with a partner you can trust",
-    "aboutDescription": "We are a licensed passenger transport company with many years of experience and a strong commitment to service quality. Your safety, comfort, and punctuality are our top priorities. We operate modern, regularly maintained vehicles and a team of professional drivers dedicated to providing a pleasant and secure travel experience. We offer daily transport between Berovo and Skopje. Passengers are picked up and dropped off at multiple locations across Skopje and Berovo, based on their needs, with optional stopovers in towns along the route. ",
     "schedule": {
       "berovo": "Daily departure from Berovo",
       "skopje": "Daily departure from Skopje"

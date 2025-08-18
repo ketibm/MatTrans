@@ -50,11 +50,32 @@ const AboutSection = () => {
           }`}
         >
           <p>{t("home.aboutDescription")}</p>
-          <p className={styles.highlighted}>{t("home.aboutText")}</p>
-          <p className={styles.schedule}>
-            {t("home.schedule.berovo")}: <strong>07:00</strong> <br />
-            {t("home.schedule.skopje")}: <strong>16:00</strong>
+          <h3>{t("home.aboutSections.regularTransport.title")}</h3>
+          <p>
+            {t("home.aboutSections.regularTransport.text")
+              .split("\n")
+              .map((line, index) => (
+                <span key={index}>
+                  {line}
+                  <br />
+                </span>
+              ))}
           </p>
+          <p className={styles.schedule}>
+            {t("home.schedule.berovo")}: 07:00 <br />
+            {t("home.schedule.skopje")}: 16:00
+          </p>
+
+          <h3>{t("home.aboutSections.additionalServices.title")}</h3>
+
+          <p>{t("home.aboutSections.additionalServices.footerText")}</p>
+
+          <p>{t("home.aboutSections.additionalServices.intro")}</p>
+
+          <ul>
+            <li>{t("home.aboutSections.additionalServices.weddings")}</li>
+            <li>{t("home.aboutSections.additionalServices.groupTransport")}</li>
+          </ul>
         </div>
 
         <div
