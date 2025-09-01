@@ -49,9 +49,13 @@ const AboutSection = () => {
             leftVisible ? styles.leftAnimate : ""
           }`}
         >
-          <p>{t("home.aboutDescription")}</p>
+          <p>
+            <strong>{t("home.aboutSections.regularTransport.company")}</strong>{" "}
+            {t("home.aboutDescription")}
+          </p>
           <h3>{t("home.aboutSections.regularTransport.title")}</h3>
           <p>
+            <strong>{t("home.aboutSections.regularTransport.company")}</strong>{" "}
             {t("home.aboutSections.regularTransport.text")
               .split("\n")
               .map((line, index) => (

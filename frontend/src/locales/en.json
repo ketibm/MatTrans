@@ -34,12 +34,13 @@
     "sliderAlt": "Transport image",
 
     "aboutTitle": "About Us",
-    "aboutDescription": "We are a licensed passenger transport company with many years of experience and dedication to providing quality service. Our priority is your safety, comfort, and punctuality on every trip. With modern and regularly serviced vehicles, as well as a professional team of drivers, we guarantee you a pleasant and safe travel experience.",
+    "aboutDescription": "is a licensed passenger transport company with many years of experience and dedication to providing quality service. Our priority is your safety, comfort, and punctuality on every trip. With modern and regularly serviced vehicles, as well as a professional team of drivers, we guarantee you a pleasant and safe travel experience.",
 
     "aboutSections": {
       "regularTransport": {
         "title": "Regular Transport",
-        "text": "MAT-TRANS offers daily transportation between Berovo and Skopje. Passengers are picked up and dropped off at multiple locations in both cities, depending on their needs, with the option of agreed stops in towns along the route."
+        "company": "MAT-TRANS",
+        "text": " offers daily transportation between Berovo and Skopje. Passengers are picked up and dropped off at multiple locations in both cities, depending on their needs, with the option of agreed stops in towns along the route."
       },
       "additionalServices": {
         "title": "Additional Services",
