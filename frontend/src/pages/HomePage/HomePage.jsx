@@ -6,6 +6,7 @@ import AboutSection from "../../components/Home/AboutSection";
 import BookingForm from "../../components/Home/BookingForm";
 import FAQSection from "../../components/Home/FAQSection";
 import ModalCard from "../../components/Modal/ModalCard";
+import Seo from "../../components/Seo/Seo";
 import { useTranslation } from "react-i18next";
 
 const HomePage = () => {
@@ -14,13 +15,13 @@ const HomePage = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState({});
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+
     window.addEventListener("resize", handleResize);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -124,31 +125,46 @@ const HomePage = () => {
   );
 
   return (
-    <div className={styles.container} ref={topRef}>
-      <HeroSlider bookingRef={bookingRef} />
-      <div ref={aboutRef}>
-        <AboutSection />
-      </div>
-      <div ref={bookingRef}>
-        <BookingForm
-          bookingRef={bookingRef}
-          submitButtonText={t("home.form.submit")}
-          setFormData={setFormData}
-          setModalOpen={setModalOpen}
-          onSubmitCallback={addReservation}
-          title="home.bookingTitle"
+    <>
+      <Seo
+        title={
+          i18n.language === "mk"
+            ? "МАТ-ТРАНС | Редовен превоз Берово - Скопје"
+            : "MAT-TRANS | Daily Transport Berovo - Skopje"
+        }
+        description={
+          i18n.language === "mk"
+            ? "МАТ-ТРАНС нуди сигурен секојдневен превоз помеѓу Берово и Скопје, со дополнителни услуги како групен превоз, свадби и приватни настани."
+            : "MAT-TRANS provides safe and reliable daily transport between Berovo and Skopje, with additional services such as group travel, weddings, and private events."
+        }
+        lang={i18n.language}
+      />
+      <div className={styles.container} ref={topRef}>
+        <HeroSlider bookingRef={bookingRef} />
+        <div ref={aboutRef}>
+          <AboutSection />
+        </div>
+        <div ref={bookingRef}>
+          <BookingForm
+            bookingRef={bookingRef}
+            submitButtonText={t("home.form.submit")}
+            setFormData={setFormData}
+            setModalOpen={setModalOpen}
+            onSubmitCallback={addReservation}
+            title="home.bookingTitle"
+          />
+        </div>
+        <div ref={faqRef}>
+          <FAQSection />
+        </div>
+
+        <ModalCard
+          show={modalOpen}
+          message={isMobile ? modalMessageMobile : modalMessageDesktop}
+          closeModal={() => setModalOpen(false)}
         />
       </div>
-      <div ref={faqRef}>
-        <FAQSection />
-      </div>
-
-      <ModalCard
-        show={modalOpen}
-        message={isMobile ? modalMessageMobile : modalMessageDesktop}
-        closeModal={() => setModalOpen(false)}
-      />
-    </div>
+    </>
   );
 };
 
