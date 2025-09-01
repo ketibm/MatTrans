@@ -9,11 +9,7 @@ const PrivacyTermsPage = () => {
   return (
     <>
       <Seo
-        title={
-          i18n.language === "mk"
-            ? "МАТ-ТРАНС | Политика за приватност и Услови за користење"
-            : "MAT-TRANS | Privacy Policy and Terms of Use"
-        }
+        title={i18n.language === "mk" ? "МАТ-ТРАНС" : "MAT-TRANS"}
         description={
           i18n.language === "mk"
             ? "Прочитајте ги политиките за приватност и условите за користење на МАТ-ТРАНС. Дознајте како ги заштитуваме вашите податоци и кои се вашите права и обврски."

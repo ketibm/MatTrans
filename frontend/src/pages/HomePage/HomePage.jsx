@@ -127,11 +127,7 @@ const HomePage = () => {
   return (
     <>
       <Seo
-        title={
-          i18n.language === "mk"
-            ? "МАТ-ТРАНС | Редовен превоз Берово - Скопје"
-            : "MAT-TRANS | Daily Transport Berovo - Skopje"
-        }
+        title={i18n.language === "mk" ? "МАТ-ТРАНС" : "MAT-TRANS"}
         description={
           i18n.language === "mk"
             ? "МАТ-ТРАНС нуди сигурен секојдневен превоз помеѓу Берово и Скопје, со дополнителни услуги како групен превоз, свадби и приватни настани."
