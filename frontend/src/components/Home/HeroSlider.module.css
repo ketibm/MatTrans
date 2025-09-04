@@ -1,4 +1,4 @@
-.slider {
+/* .slider {
   width: 100%;
   height: 35rem;
   position: relative;
@@ -72,6 +72,89 @@
     font-size: 1.3rem;
   }
 
+  .buttons {
+    flex-direction: column;
+  }
+} */
+
+.slider {
+  width: 100%;
+  height: 35rem;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.textBox,
+.textBox h1,
+.textBox h2,
+.buttons {
+  pointer-events: auto;
+}
+
+.textBox h1 {
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.textBox h2 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (min-width: 769px) and (max-width: 1025px) {
+  .textBox h1 {
+    font-size: 2.5rem;
+  }
+  .textBox h2 {
+    font-size: 1.8rem;
+  }
+  .slider {
+    height: 28rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider {
+    height: 22rem;
+  }
+  .textBox h1 {
+    font-size: 1.7rem;
+  }
+  .textBox h2 {
+    font-size: 1.3rem;
+  }
   .buttons {
     flex-direction: column;
   }
