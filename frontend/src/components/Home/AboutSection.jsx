@@ -78,6 +78,9 @@ const AboutSection = () => {
 
           <ul>
             <li>{t("home.aboutSections.additionalServices.weddings")}</li>
+            <li>
+              {t("home.aboutSections.additionalServices.airportTransport")}
+            </li>
             <li>{t("home.aboutSections.additionalServices.groupTransport")}</li>
           </ul>
         </div>
