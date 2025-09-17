@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./FAQSection.module.css";
-import InfoImg from "../../assets/info.png";
+import InfoImg from "../../assets/info1.png";
 import LogoImg from "../../assets/logo.jpg";
 import { useTranslation } from "react-i18next";
 
