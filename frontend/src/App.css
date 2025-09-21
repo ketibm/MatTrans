@@ -138,7 +138,7 @@ p {
 }
 
 html {
-  font-size: 100%; /* 1rem = 16px */
+  font-size: 100%;
   font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -153,10 +153,10 @@ body {
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: subpixel-antialiased;
+
+  overflow-y: visible;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: visible;
 }
 
 #root {
@@ -206,6 +206,12 @@ p {
   box-sizing: border-box;
 }
 
+/* .pageWrapper {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+} */
+
 :root {
   --color-light-blue: #0b7fd2;
   --color-dark-blue: #004059;
@@ -226,15 +232,29 @@ p {
 }
 
 @media (max-width: 480px) {
+  .pageWrapper {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
   h1 {
     font-size: 2rem;
   }
 }
+
 @media (min-width: 481px) and (max-width: 768px) {
+  .pageWrapper {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
   h1 {
     font-size: 2.5rem;
   }
 }
+
 @media (min-width: 769px) {
   h1 {
     font-size: 3rem;

@@ -93,7 +93,6 @@ const Root = () => {
 
   return (
     <ModalProvider>
-      {/* wrapper за целата страница */}
       <div className="pageWrapper">
         <FirstHeader />
         <Header scrollToSection={scrollToSection} />
