@@ -128,7 +128,7 @@ p {
     font-size: 3rem;
   }
 } */
-/* Reset & box-sizing */
+
 *,
 *::before,
 *::after {
@@ -137,7 +137,6 @@ p {
   padding: 0;
 }
 
-/* Base html */
 html {
   font-size: 100%; /* 1rem = 16px */
   font-family: Arial, Helvetica, sans-serif;
@@ -146,7 +145,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Body */
 body {
   min-height: 100vh;
   line-height: 1.5;
@@ -157,24 +155,21 @@ body {
   -webkit-font-smoothing: subpixel-antialiased;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* спречува хоризонтален скрол */
-  overflow-y: visible; /* sticky ќе работи */
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
-/* Root */
 #root {
   width: 100%;
   text-align: center;
   box-sizing: border-box;
-  overflow: visible; /* важно за sticky */
+  overflow: visible;
 }
 
-/* Scrollbar */
 body::-webkit-scrollbar {
   display: none;
 }
 
-/* Links */
 a {
   text-decoration: none;
   font-weight: 500;
@@ -186,7 +181,6 @@ a:focus {
   outline: none;
 }
 
-/* Headings */
 h1,
 h2,
 h3,
@@ -199,13 +193,11 @@ h6 {
   font-weight: 700;
 }
 
-/* Paragraphs */
 p {
   margin-bottom: 1rem;
   color: var(--color-text);
 }
 
-/* Containers */
 .container {
   padding: 1rem;
   width: 100%;
@@ -214,7 +206,6 @@ p {
   box-sizing: border-box;
 }
 
-/* Variables */
 :root {
   --color-light-blue: #0b7fd2;
   --color-dark-blue: #004059;
@@ -234,7 +225,6 @@ p {
   --neu-radius: 1rem;
 }
 
-/* Responsive typography */
 @media (max-width: 480px) {
   h1 {
     font-size: 2rem;
