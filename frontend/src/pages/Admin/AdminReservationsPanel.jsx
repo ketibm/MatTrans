@@ -118,46 +118,6 @@ const AdminReservationsPanel = () => {
     }
   }
 
-  async function confirmReservationWithoutDirection(id) {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await fetch(
-        `http://localhost:5000/api/reservations/${id}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ status: "confirmed" }),
-        }
-      );
-
-      if (!response.ok) throw new Error("Грешка при менување на статусот.");
-
-      await fetchReservations();
-
-      setModalMessage(
-        "Резервацијата е успешно потврдена и патникот е известен по е-маил."
-      );
-      setModalOpen(true);
-      setReservationToConfirm(reservations.find((r) => r._id === id) || null);
-    } catch (error) {
-      setModalMessage("Грешка при потврдување на резервацијата.");
-    }
-  }
-
-  const onConfirmClick = (reservation) => {
-    confirmReservationWithoutDirection(reservation._id);
-  };
-
-  const onCloseMessageModal = () => {
-    setModalOpen(false);
-    if (reservationToConfirm) {
-      setConfirmModalOpen(true);
-    }
-  };
-
   async function updateStatusWithDirection({
     id,
     direction,
@@ -191,16 +151,27 @@ const AdminReservationsPanel = () => {
 
       await fetchReservations();
 
-      setModalMessage("Насоката е успешно додадена.");
+      setModalMessage(
+        "Резервацијата е успешно потврдена и патникот е известен по е-маил."
+      );
       setModalOpen(true);
     } catch (error) {
-      setModalMessage("Грешка при додавање на насоката.");
+      setModalMessage("Грешка при потврдување на резервацијата.");
       setModalOpen(true);
     } finally {
       setConfirmModalOpen(false);
       setReservationToConfirm(null);
     }
   }
+
+  const onConfirmClick = (reservation) => {
+    setReservationToConfirm(reservation);
+    setConfirmModalOpen(true);
+  };
+
+  const onCloseMessageModal = () => {
+    setModalOpen(false);
+  };
 
   const filteredPending = useMemo(
     () => reservations.filter((r) => r.status === "pending"),
@@ -600,6 +571,7 @@ const AdminReservationsPanel = () => {
       }, 500);
     };
   }
+
   if (loading) return <p>Вчитување...</p>;
 
   return (
@@ -645,6 +617,7 @@ const AdminReservationsPanel = () => {
         submitButtonText="Додади резервација"
         onSubmitCallback={addReservation}
         title="Нова резервација"
+        isAdmin={true}
       />
 
       <ModalCard

@@ -43,7 +43,7 @@ const HomePage = () => {
       const messageText = `
           Добивте ново барање за резервација.
          За да ги видите деталите и да ја потврдите или одбиете резервацијата, кликнете на следниот линк:
-         https://localhost5173/login
+         http://localhost:5173/login
          `;
 
       const emailData = {

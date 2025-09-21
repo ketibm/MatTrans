@@ -10,6 +10,15 @@ const images = [
   "/home/autoTwo.jpg",
   "/home/autoThree.jpg",
   "/home/autoFour.jpg",
+  "/home/autoFive.jpg",
+  "/home/autoSix.jpg",
+  "/home/autoSeven.jpg",
+  "/home/autoEight.jpg",
+  "/home/autoNine.jpg",
+  "/home/autoTen.jpg",
+  "/home/autoEleven.jpg",
+  "/home/autoTwelve.jpg",
+  "/home/autoThirteen.jpg",
 ];
 
 const HeroSlider = ({ bookingRef }) => {

@@ -23,7 +23,7 @@ const AdminLoginPage = () => {
         throw new Error("Невалидни креденцијали");
       }
 
-      const data = await response.json();
+      const data = await res.json();
       localStorage.setItem("token", data.token);
       navigate("/admin");
     } catch (err) {

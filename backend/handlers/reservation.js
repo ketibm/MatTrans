@@ -31,7 +31,7 @@ const createReservation = async (req, res) => {
       tripType,
     } = req.body;
 
-    if (!fullName || !phone || !email || !date || !from || !to || !adults) {
+    if (!fullName || !phone || !date || !from || !to || !adults) {
       return res
         .status(400)
         .json({ error: "Недостасуваат задолжителни полиња." });
@@ -64,7 +64,7 @@ const createReservation = async (req, res) => {
     const reservation = {
       fullName,
       phone,
-      email,
+      email: email || null,
       date,
       from,
       to,
@@ -151,205 +151,9 @@ const updateReservation = async (req, res) => {
 
     console.log("Ажурирана резервација:", updatedReservation);
 
-    // if (req.body.status === "confirmed") {
-    //   console.log(
-    //     "Резервацијата е потврдена. Проверка за повратна резервација..."
-    //   );
-
-    //   const current = updatedReservation || reservation;
-    //   console.log("Оригинална/Ажурирана резервација:", {
-    //     direction: current?.direction,
-    //     from: current?.from,
-    //     to: current?.to,
-    //     tripType: current?.tripType,
-    //     returnDate: current?.returnDate,
-    //     returnDateUnknown: current?.returnDateUnknown,
-    //     groupId: current?.groupId,
-    //   });
-
-    //   let reverseDirection = null;
-    //   const dir = (current?.direction || "").toLowerCase().trim();
-
-    //   if (dir === "berovo-skopje") {
-    //     reverseDirection = "skopje-berovo";
-    //   } else if (dir === "skopje-berovo") {
-    //     reverseDirection = "berovo-skopje";
-    //   } else {
-    //     const fromLower = (current?.from || "").toLowerCase();
-    //     const toLower = (current?.to || "").toLowerCase();
-
-    //     if (fromLower.includes("берово") && toLower.includes("скопје")) {
-    //       reverseDirection = "skopje-berovo";
-    //     } else if (fromLower.includes("скопје") && toLower.includes("берово")) {
-    //       reverseDirection = "berovo-skopje";
-    //     }
-    //   }
-
-    //   console.log("Пресметана reverseDirection =", reverseDirection);
-
-    //   if (
-    //     current?.tripType === "roundTrip" &&
-    //     current?.returnDate &&
-    //     !current?.returnDateUnknown &&
-    //     reverseDirection
-    //   ) {
-    //     const existingReturnReservation = await Reservation.findOne({
-    //       groupId: current.groupId,
-    //       direction: reverseDirection,
-    //       date: current.returnDate,
-    //     });
-
-    //     console.log(
-    //       "Проба за постоечка повратна резервација:",
-    //       existingReturnReservation
-    //     );
-
-    //     if (!existingReturnReservation) {
-    //       const returnReservation = {
-    //         fullName: current.fullName,
-    //         phone: current.phone,
-    //         email: current.email,
-    //         date: current.returnDate,
-    //         from: current.to,
-    //         to: current.from,
-    //         adults: current.adults,
-    //         children: current.children,
-    //         status: "confirmed",
-    //         direction: reverseDirection,
-    //         returnDate: null,
-    //         returnDateUnknown: false,
-    //         tripType: "oneWay",
-    //         groupId: current.groupId,
-    //       };
-
-    //       console.log(
-    //         "Креирање повратна резервација (payload):",
-    //         returnReservation
-    //       );
-
-    //       try {
-    //         const savedReturnReservation = await Reservation.create(
-    //           returnReservation
-    //         );
-    //         console.log(
-    //           "Повратна резервација успешно креирана:",
-    //           savedReturnReservation
-    //         );
-    //       } catch (error) {
-    //         console.error("Грешка при креирање повратна резервација:", error);
-    //       }
-    //     } else {
-    //       console.log(
-    //         "Повратна резервација веќе постои, нема да креирам дупликат."
-    //       );
-    //     }
-    //   } else {
-    //     console.log("Условите за повратна резервација не се исполнети.");
-    //   }
-    // if (req.body.status === "confirmed") {
-    //   console.log(
-    //     "Резервацијата е потврдена. Проверка за повратна резервација..."
-    //   );
-
-    //   const current = updatedReservation || reservation;
-    //   console.log("Оригинална/Ажурирана резервација:", {
-    //     direction: current?.direction,
-    //     from: current?.from,
-    //     to: current?.to,
-    //     tripType: current?.tripType,
-    //     returnDate: current?.returnDate,
-    //     returnDateUnknown: current?.returnDateUnknown,
-    //     groupId: current?.groupId,
-    //   });
-
-    //   // Функција за swap на direction (само два дела со -)
-    //   function reverseDirection(dir) {
-    //     if (!dir) return null;
-    //     const parts = dir.toLowerCase().trim().split("-");
-    //     if (parts.length !== 2) {
-    //       console.log("Невалиден формат на direction:", dir);
-    //       return null;
-    //     }
-    //     const reverseDir = parts.reverse().join("-");
-    //     console.log(`reverseDirection('${dir}') -> '${reverseDir}'`);
-    //     return reverseDir;
-    //   }
-
-    //   const direction = "skopje-berovo";
-    //   const reverseDir = reverseDirection(direction);
-    //   console.log("Пресметана reverseDirection =", reverseDir);
-
-    //   // Проверка за повратна резервација
-    //   if (
-    //     current?.tripType === "roundTrip" &&
-    //     current?.returnDate &&
-    //     !current?.returnDateUnknown &&
-    //     reverseDir
-    //   ) {
-    //     const existingReturnReservation = await Reservation.findOne({
-    //       groupId: current.groupId,
-    //       direction: reverseDir,
-    //       date: current.returnDate,
-    //     });
-
-    //     console.log(
-    //       "Проба за постоечка повратна резервација:",
-    //       existingReturnReservation
-    //     );
-
-    //     if (!existingReturnReservation) {
-    //       const returnReservation = {
-    //         fullName: current.fullName,
-    //         phone: current.phone,
-    //         email: current.email,
-    //         date: current.returnDate,
-    //         from: current.to, // swap на from/to
-    //         to: current.from,
-    //         adults: current.adults,
-    //         children: current.children,
-    //         status: "confirmed",
-    //         direction: reverseDir, // swap на direction
-    //         returnDate: null,
-    //         returnDateUnknown: false,
-    //         tripType: "oneWay",
-    //         groupId: current.groupId,
-    //       };
-
-    //       console.log(
-    //         "Креирање повратна резервација (payload):",
-    //         returnReservation
-    //       );
-
-    //       try {
-    //         const savedReturnReservation = await Reservation.create(
-    //           returnReservation
-    //         );
-    //         console.log(
-    //           "Повратна резервација успешно креирана:",
-    //           savedReturnReservation
-    //         );
-    //       } catch (error) {
-    //         console.error("Грешка при креирање повратна резервација:", error);
-    //       }
-    //     } else {
-    //       console.log(
-    //         "Повратна резервација веќе постои, нема да креирам дупликат."
-    //       );
-    //     }
-    //   } else {
-    //     console.log("Условите за повратна резервација не се исполнети.");
-    //   }
     if (req.body.status === "confirmed") {
-      console.log("Direction од frontend:", req.body.direction);
       const current = updatedReservation || reservation;
 
-      // function reverseDirection(dir) {
-      //   if (!dir) return null;
-      //   const normalized = dir.toLowerCase().trim();
-      //   if (normalized === "berovo-skopje") return "skopje-berovo";
-      //   if (normalized === "skopje-berovo") return "berovo-skopje";
-      //   return null;
-      // }
       const finalDirection = req.body.direction || current.direction;
 
       function reverseDirection(dir) {
@@ -400,72 +204,25 @@ const updateReservation = async (req, res) => {
           });
         }
       }
+      if (current.email) {
+        const subject = "Вашата резервација е потврдена";
+        const message = `Почитуван/а ${updatedReservation.fullName},
 
-      // if (req.body.status === "confirmed") {
-      //   const current = updatedReservation || reservation;
+      Ви благодариме што избравте да патувате со нас.
+      Вашата резервација е успешно потврдена.
 
-      //   function reverseDirection(dir) {
-      //     if (!dir) return null;
-      //     const parts = dir.toLowerCase().trim().split("-");
-      //     if (parts.length !== 2) return null;
-      //     return parts.reverse().join("-");
-      //   }
+      Ви посакуваме среќен пат и Ви благодариме за довербата!
 
-      //   const reverseDir = reverseDirection(current.direction);
+      Со почит,
+      МАТ-ТРАНС`;
 
-      //   // Ако е roundTrip, креирај повратна резервација, но не менувај ја насоката на оригиналната
-      //   if (
-      //     current.tripType === "roundTrip" &&
-      //     current.returnDate &&
-      //     !current.returnDateUnknown &&
-      //     reverseDir
-      //   ) {
-      //     const existingReturnReservation = await Reservation.findOne({
-      //       groupId: current.groupId,
-      //       direction: reverseDir,
-      //       date: current.returnDate,
-      //     });
-
-      //     if (!existingReturnReservation) {
-      //       const returnReservation = {
-      //         fullName: current.fullName,
-      //         phone: current.phone,
-      //         email: current.email,
-      //         date: current.returnDate,
-      //         from: current.to,
-      //         to: current.from,
-      //         adults: current.adults,
-      //         children: current.children,
-      //         status: "confirmed",
-      //         direction: reverseDir, // оваа е спротивна насока
-      //         returnDate: null,
-      //         returnDateUnknown: false,
-      //         tripType: "oneWay",
-      //         groupId: current.groupId,
-      //       };
-
-      //       await Reservation.create(returnReservation);
-      //     }
-      //   }
-
-      const subject = "Вашата резервација е потврдена";
-      const message = `Почитуван/а ${updatedReservation.fullName},
-
-Ви благодариме што избравте да патувате со нас.
-Вашата резервација е успешно потврдена.
-
-Ви посакуваме среќен пат и Ви благодариме за довербата!
-
-Со почит,
-МАТ-ТРАНС`;
-
-      await sendEmail({
-        from: process.env.EMAIL_USER,
-        to: updatedReservation.email,
-        subject,
-        text: message,
-      });
-
+        await sendEmail({
+          from: process.env.EMAIL_USER,
+          to: updatedReservation.email,
+          subject,
+          text: message,
+        });
+      }
       return res.status(200).json(updatedReservation);
     }
 
