@@ -251,3 +251,20 @@ p {
     font-size: 3rem;
   }
 }
+
+* {
+  outline: 1px solid transparent; /* default */
+}
+
+*:where(:not(html, body)) {
+  outline: 1px solid red; /* сите елементи добиваат outline */
+}
+
+@media (max-width: 768px) {
+  * {
+    outline: 1px solid transparent;
+  }
+  *:where(:not(html, body)) {
+    outline: 1px solid red;
+  }
+}

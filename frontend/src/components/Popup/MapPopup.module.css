@@ -14,22 +14,21 @@
 .popup {
   position: relative;
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 600px;
-  height: 450px;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+  width: 37.5rem;
+  height: 28rem;
   box-sizing: border-box;
   overflow: hidden;
 }
 
-/* ✕ Close button */
 .closeBtn {
   position: absolute;
-  top: 10px;
-  right: 12px;
+  top: 0.625rem;
+  right: 0.75rem;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 1.5rem;
   cursor: pointer;
   z-index: 10000;
   color: var(--color-dark-blue);
@@ -39,14 +38,14 @@
   .popup {
     width: 90vw;
     height: 70vh;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 0.9rem;
+    border-radius: 0.5rem;
   }
 
   .closeBtn {
-    font-size: 20px;
-    top: 8px;
-    right: 10px;
+    font-size: 1.25rem;
+    top: 0.5rem;
+    right: 0.625rem;
   }
 }
 
@@ -54,13 +53,13 @@
   .popup {
     width: 95vw;
     height: 55vh;
-    padding: 10px;
-    border-radius: 6px;
+    padding: 0.9rem;
+    border-radius: 0.375rem;
   }
 
   .closeBtn {
-    font-size: 18px;
-    top: 6px;
-    right: 8px;
+    font-size: 1.125rem;
+    top: 0.375rem;
+    right: 0.5rem;
   }
 }
