@@ -100,9 +100,10 @@ const FAQSection = () => {
 
                 {isOpen && (
                   <>
-                    <div className={styles.answer}>
-                      <p>{t(`faq.a${i}`)}</p>
-                    </div>
+                    <div
+                      className={styles.answer}
+                      dangerouslySetInnerHTML={{ __html: t(`faq.a${i}`) }}
+                    />
                     <div className={styles.line}></div>
                   </>
                 )}

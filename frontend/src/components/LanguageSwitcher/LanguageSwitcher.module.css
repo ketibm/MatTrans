@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  z-index: 10000;
 }
 
 .iconWrapper {
@@ -25,7 +26,7 @@
 
 .dropdown {
   position: absolute;
-  top: 100%;
+  top: 120%;
   left: 50%;
   transform: translateX(-50%);
   background: var(--color-white);

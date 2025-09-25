@@ -65,7 +65,7 @@
   transform: rotate(180deg);
 }
 
-.answer p {
+.answer {
   text-align: justify;
   color: var(--color-dark-blue);
 }
@@ -163,7 +163,7 @@
     font-size: 0.8rem;
   }
 
-  .answer p {
+  .answer {
     font-size: 0.8rem;
     line-height: 1.5;
   }

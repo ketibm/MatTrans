@@ -138,13 +138,13 @@
     "a1": "We recommend booking at least one day in advance to secure your seat.",
 
     "q2": "Is there a discount for children?",
-    "a2": "Yes, children under 7 years old get a 50% discount.",
+    "a2": "Yes, children up to 7 years old get a 50% discount.",
 
     "q3": "How much does a ticket cost?",
-    "a3": "The price of a one-way ticket is 500 denars.",
+    "a3": "<strong>Ticket prices to Skopje:</strong><br/>\n<ul>\n<li><strong>From Berovo: 550</strong> MKD one way, <strong>900</strong> MKD return ticket.</li>\n<li><strong>From Vinica: 450</strong> MKD one way, <strong>700</strong> MKD return ticket.</li>\n<li><strong>From Sveti Nikole: 300</strong> MKD one way.</li>\n</ul>",
 
-    "q4": "Can I buy a return ticket and what is the price?",
-    "a4": "Yes, a return ticket costs 900 denars and is valid for 30 days from the departure date.",
+    "q4": "How long is the return ticket valid?",
+    "a4": "The return ticket is valid for 30 days from the departure date.",
 
     "q5": "How can I cancel a reservation?",
     "a5": "You can cancel by calling us at least 12 hours before departure."

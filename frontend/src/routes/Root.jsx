@@ -93,7 +93,7 @@ const Root = () => {
 
   return (
     <ModalProvider>
-      <div className="pageWrapper">
+      <div>
         <FirstHeader />
         <Header scrollToSection={scrollToSection} />
 

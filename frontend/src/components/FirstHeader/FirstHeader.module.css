@@ -6,7 +6,7 @@
   background-color: var(--color-dark-blue);
   padding: 0 2.5rem;
   flex-wrap: wrap;
-  z-index: 100;
+  z-index: 2000;
   color: var(--color-white);
   box-sizing: border-box;
 }
