@@ -13,6 +13,8 @@
   object-fit: cover;
   transition: opacity 1s ease-in-out;
   cursor: pointer;
+  max-width: 100%;
+  display: block;
 }
 
 .overlay {
