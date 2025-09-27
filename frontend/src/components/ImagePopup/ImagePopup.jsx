@@ -96,7 +96,6 @@ const ImagePopup = ({ images, startIndex, onClose }) => {
     setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   const nextImage = () => setIndex((prev) => (prev + 1) % images.length);
 
-  // за мобилен - почеток на touch
   const handleTouchStart = (e) => {
     if (window.innerWidth <= 768) {
       touchStartX.current = e.changedTouches[0].screenX;
@@ -111,16 +110,14 @@ const ImagePopup = ({ images, startIndex, onClose }) => {
     }
   };
 
-  // swipe логика
   const handleSwipe = () => {
     const diff = touchStartX.current - touchEndX.current;
     if (Math.abs(diff) > 50) {
-      if (diff > 0) nextImage(); // swipe left
-      else prevImage(); // swipe right
+      if (diff > 0) nextImage();
+      else prevImage();
     }
   };
 
-  // desktop keyboard навигација
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();
@@ -143,7 +140,6 @@ const ImagePopup = ({ images, startIndex, onClose }) => {
       </span>
 
       <div className={styles.mainWrapper} onClick={(e) => e.stopPropagation()}>
-        {/* стрелки само за десктоп */}
         <button className={styles.arrowLeft} onClick={prevImage}>
           ‹
         </button>
@@ -160,7 +156,10 @@ const ImagePopup = ({ images, startIndex, onClose }) => {
             src={img}
             alt="thumb"
             className={`${styles.thumb} ${i === index ? styles.active : ""}`}
-            onClick={() => setIndex(i)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIndex(i);
+            }}
           />
         ))}
       </div>
