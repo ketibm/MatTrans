@@ -228,11 +228,11 @@ p {
   h1 {
     font-size: 2rem;
   }
-  /* html,
+  html,
   body {
     max-width: 100%;
     overflow-x: hidden;
-  } */
+  }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
