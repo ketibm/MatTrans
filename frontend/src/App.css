@@ -102,24 +102,3 @@ p {
     overflow-x: hidden;
   }
 }
-/* @media (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
-  }
-  html,
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  html,
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-} */
