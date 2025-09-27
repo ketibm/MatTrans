@@ -84,7 +84,7 @@
   }
 } */
 /* full overlay */
-.popup {
+/* .popup {
   position: fixed;
   top: 0;
   left: 0;
@@ -193,6 +193,53 @@
 
 @media (max-width: 768px) {
   .popup {
+    justify-content: flex-start;
+    padding-top: 4rem;
+  }
+
+  .mainWrapper {
+    max-width: 100%;
+    max-height: 70vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mainImage {
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .thumbnails {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    gap: 0.4rem;
+    padding: 0.5rem 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .thumb {
+    height: 2.5rem;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+    border-radius: 5px;
+  }
+
+  .thumb:hover,
+  .active {
+    opacity: 1;
+    border: 2px solid #004059;
+  }
+  .popup {
     padding-top: 5rem;
     justify-content: flex-start;
   }
@@ -220,6 +267,116 @@
   .thumb {
     height: 2.5rem;
   }
+} */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* цел екран */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px); /* BLUR цела позадина */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* секогаш на средина */
+  z-index: 9999;
+  overflow: hidden; /* нема скролање */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.mainWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 95%;
+  max-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mainImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #004059;
+  z-index: 10000;
+  background: none;
+  border: none;
+}
+
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10000;
+  padding: 0.4rem;
+  border-radius: 50%;
+}
+
+.arrowLeft {
+  left: 0.5rem;
+}
+.arrowRight {
+  right: 0.5rem;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.thumb {
+  height: 3rem;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.thumb:hover,
+.active {
+  opacity: 1;
+  border: 2px solid #004059;
+}
+
+@media (max-width: 768px) {
+  .popup {
+    width: 100vw;
+    height: 100vh; /* секогаш fullscreen */
+    max-height: none; /* да не сече */
+    padding-top: 3rem;
+  }
+
+  .arrowLeft,
+  .arrowRight {
+    display: none;
+  }
 }
 
 /* .popup {
@@ -228,7 +385,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
