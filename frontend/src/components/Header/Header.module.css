@@ -81,6 +81,12 @@
 }
 
 @media (max-width: 768px) {
+  .header {
+    position: fixed;
+    top: 2rem;
+    height: 4rem;
+  }
+
   .headerLogo {
     width: 5rem;
   }

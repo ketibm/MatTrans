@@ -59,6 +59,7 @@
 @media (max-width: 1024px) {
   .firstHeader {
     padding: 0 1rem;
+    position: fixed;
   }
 
   .leftContact {

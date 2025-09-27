@@ -21,8 +21,6 @@
 
 .aboutContent {
   display: flex;
-  /* gap: 1rem; */
-  /* flex-wrap: nowrap; */
   flex-wrap: wrap;
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
 const containerStyle = {
@@ -9,33 +9,10 @@ const containerStyle = {
 const libraries = ["places"];
 
 const CompanyMap = ({ coordinates, zoom = 18 }) => {
-  // const [location, setLocation] = useState(null);
-
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API,
     libraries,
   });
-
-  // useEffect(() => {
-  //   if (!isLoaded) return;
-
-  //   if (coordinates) {
-  //     setLocation(coordinates);
-  //   } else if (address) {
-  //     const geocoder = new window.google.maps.Geocoder();
-  //     geocoder.geocode({ address }, (results, status) => {
-  //       if (status === "OK" && results[0]) {
-  //         const { lat, lng } = results[0].geometry.location;
-  //         setLocation({
-  //           lat: lat(),
-  //           lng: lng(),
-  //         });
-  //       } else {
-  //         console.error("❌ Geocode failed:", status);
-  //       }
-  //     });
-  //   }
-  // }, [isLoaded, address, coordinates]);
 
   if (loadError) return <p>Error loading map</p>;
   if (!isLoaded) return <p>Loading map script...</p>;
