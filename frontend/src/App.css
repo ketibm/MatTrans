@@ -223,8 +223,17 @@ p {
   --neu-shadow-dark: #001f4d;
   --neu-radius: 1rem;
 }
-
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+/* @media (max-width: 480px) {
   h1 {
     font-size: 2rem;
   }
@@ -244,27 +253,4 @@ p {
     max-width: 100%;
     overflow-x: hidden;
   }
-}
-
-@media (min-width: 769px) {
-  h1 {
-    font-size: 3rem;
-  }
-}
-
-* {
-  outline: 1px solid transparent; /* default */
-}
-
-*:where(:not(html, body)) {
-  outline: 1px solid red; /* сите елементи добиваат outline */
-}
-
-@media (max-width: 768px) {
-  * {
-    outline: 1px solid transparent;
-  }
-  *:where(:not(html, body)) {
-    outline: 1px solid red;
-  }
-}
+} */
